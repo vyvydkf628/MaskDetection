@@ -1,0 +1,54 @@
+openapi: 3.0.1
+info:
+  title: Ainized-Mask 
+  description:  |
+    # This api provides detects masked or not
+    [`API github`](https://github.com/vyvydkf628/ShadeSketch)
+    ---
+    How to use:
+      * s
+      * a
+  contact:
+    name: Ainizer - DongCheol Jwa
+    email: popor628@gmaail.com
+  version: 1.0.0
+  license:
+    name: "MIT"
+    url: ""
+servers:
+  - url: ''
+
+paths:
+  /checkmask:
+    post:
+      tags:
+      - Mask
+      requestBody:
+        required: true
+        description: "send person image \n \n [sample image1]() \n \n [sample image2]()"
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: string
+                  format: binary
+
+            encoding:
+              files:
+                contentType: image/*
+      responses:
+         '200':
+            description: image translation success
+            content:
+              application/json:
+                  schema:
+                    type: object
+                    properties:
+                      result:
+                        type: string
+         '400':
+            description: Bad request (File Not Uploaded)
+         '500':
+            description: Server Side Error (Model Test Error, File Move Error)

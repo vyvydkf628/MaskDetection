@@ -1,0 +1,28 @@
+{
+  "name": "maskedface",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js -e js,hbs,py",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@teachablemachine/image": "^0.8.4",
+    "@tensorflow/tfjs": "^1.7.1",
+    "@tensorflow/tfjs-node": "^1.7.1",
+    "canvas": "^2.6.1",
+    "express": "^4.17.1",
+    "face-api.js": "^0.22.2",
+    "hbs": "^4.1.0",
+    "multer": "^1.4.2",
+    "python-shell": "^1.0.8",
+    "shortid": "^2.2.15"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
