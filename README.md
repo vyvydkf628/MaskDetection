@@ -16,5 +16,12 @@ Now the server is available at http://localhostL80. To learn how to query the se
 
 Note that the docker image can be deployed using any docker-based deploy platform (e.g. ainize.ai).
 
+# References
+
+* https://github.com/justadudewhohacks/face-api.js/
+* https://github.com/googlecreativelab/teachable-machine-v1
+
 # License
 MIT License
+
+
