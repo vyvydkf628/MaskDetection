@@ -6,17 +6,17 @@ info:
     [`API github`](https://github.com/vyvydkf628/ShadeSketch)
     ---
     How to use:
-      * s
-      * a
+      * 
+      * 
   contact:
     name: Ainizer - DongCheol Jwa
-    email: popor628@gmaail.com
+    email: popor628@gmail.com
   version: 1.0.0
   license:
     name: "MIT"
     url: ""
 servers:
-  - url: ''
+  - url: 'https://mask.vyvydkf628.endpoint.ainize.ai'
 
 paths:
   /checkmask:
@@ -25,13 +25,13 @@ paths:
       - Mask
       requestBody:
         required: true
-        description: "send person image \n \n [sample image1]() \n \n [sample image2]()"
+        description: "send person image \n \n [sample image1](https://images.unsplash.com/photo-1438761681033-6461ffad8d80?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80) \n \n [sample image2](https://images.unsplash.com/photo-1511870563328-22efd1ad5faf?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=916&q=80)"
         content:
           multipart/form-data:
             schema:
               type: object
               properties:
-                files:
+                image:
                   type: string
                   format: binary
 
@@ -52,3 +52,4 @@ paths:
             description: Bad request (File Not Uploaded)
          '500':
             description: Server Side Error (Model Test Error, File Move Error)
+
