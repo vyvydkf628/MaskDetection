@@ -40,7 +40,7 @@ paths:
                 contentType: image/*
       responses:
          '200':
-            description: image translation success
+            description: success
             content:
               application/json:
                   schema:
