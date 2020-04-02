@@ -1,13 +1,18 @@
 import * as faceapi from 'face-api.js';
 
-import { canvas, faceDetectionNet, faceDetectionOptions, saveFile } from './commons';
+import { canvas, faceDetectionNet, faceDetectionOptions, saveFile } from '../mask/commons';
 
 import {createCanvas} from 'canvas';
 export async function detectSingle(image){
 
   await faceDetectionNet.loadFromDisk('src/mask/weights')
-  
-  const img = await canvas.loadImage(`./image/${image}`)
+  let img
+  try {
+    img = await canvas.loadImage(`./image/masked/${image}`)
+    
+  } catch (error) {
+    return false  
+  }
   const detect = createCanvas(148,121)
   const ctx = detect.getContext('2d')
   
@@ -22,7 +27,7 @@ export async function detectSingle(image){
   console.log(detections)
   // faceapi.draw.drawDetections(out, detections)
 
-  saveFile(image, detect.toBuffer('image/jpeg'))
+  saveFile(detections.score+"score"+image, detect.toBuffer('image/jpeg'))
   console.log('done, saved results to out/faceDetection.jpg')
   return true
   }

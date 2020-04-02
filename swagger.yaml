@@ -2,12 +2,13 @@ openapi: 3.0.1
 info:
   title: Ainized-Mask 
   description:  |
-    # This api provides detects masked or not
+    # This is an API server that detects whether the person in the image is wearing a mask or not. 
+    The model used in the server is from [face-api](https://github.com/justadudewhohacks/face-api.js/) and [teachable machine](https://github.com/googlecreativelab/teachable-machine-v1)
     [`API github`](https://github.com/vyvydkf628/ShadeSketch)
     ---
     How to use:
-      * 
-      * 
+      * send image to MaskDetection server
+      * MaskDetection server returns score of detections
   contact:
     name: Ainizer - DongCheol Jwa
     email: popor628@gmail.com
