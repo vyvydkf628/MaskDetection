@@ -64,4 +64,13 @@ for root, dirs, files in os.walk('src/mask/out/', topdown=False):
             "background": str(round(prediction[0][2],10)) 
         }
 
+df= pd.DataFrame()
+df['ismasked']= ismasked
+df['accuracy_score'] = accuracy_score
+df['accuracy_score_masked'] = accuracy_score_masked
+
+print(df.discribe())
+
+
+
 print(json.dumps(result))

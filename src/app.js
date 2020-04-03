@@ -6,7 +6,7 @@ const {PythonShell} = require('python-shell')
 
 const viewsPath = path.join(__dirname,'../templates/views')
 const {detectSingle} = require('./mask/faceDetection')
-
+const requestToMaskApi = require('./util/requestToMaskDetection')
 const app = express()
 
 app.set('view engine','hbs')
@@ -58,16 +58,18 @@ app.post('/checkmask',upload.single('image'),async(req,res)=>{
         const isPerson = await detectSingle(`${req.file.filename}`)
         if(!isPerson) res.status(400).send({error:"can't find the face"});
         else{
+            const result = await requestToMaskApi(req.file.filename)
+            res.status(200).send(result)
 
-            PythonShell.run('src/py/predict.py',{args: [`--image=src/mask/out/${req.file.filename}`]},(err,result)=>{
-                result = JSON.parse(result)
-                if(err) {
-                    console.log(err)
-                    res.status(400).send({err})}
-                else{
-                    res.status(200).send({result})
-                }
-            })
+            // PythonShell.run('src/py/predict.py',{args: [`--image=src/mask/out/${req.file.filename}`]},(err,result)=>{
+            //     result = JSON.parse(result)
+            //     if(err) {
+            //         console.log(err)
+            //         res.status(400).send({err})}
+            //     else{
+            //         res.status(200).send({result})
+            //     }
+            // })
         }
         
     } catch (error) {
