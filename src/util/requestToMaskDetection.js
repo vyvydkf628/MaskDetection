@@ -1,9 +1,8 @@
 const request = require('request-promise')
-const url = "http://127.0.0.1:3010/mask"
+const url = "https://evalmask.vyvydkf628.endpoint.ainize.ai/evalmask"
 const fs = require('fs')
 
 const requestToMaskApi = async (image)=>{
-
     const options = {
         method: "POST",
         url,
@@ -15,6 +14,7 @@ const requestToMaskApi = async (image)=>{
         }
     };
     const result = await request(options)
+    
     return result
 }
 
