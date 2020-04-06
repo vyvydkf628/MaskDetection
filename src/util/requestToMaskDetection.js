@@ -13,6 +13,7 @@ const requestToMaskApi = async (image)=>{
             "image" : fs.createReadStream(`src/mask/out/${image}`)
         }
     };
+    console.log("asd")
     const result = await request(options)
     
     return result

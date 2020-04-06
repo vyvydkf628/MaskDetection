@@ -1,27 +1,13 @@
 const express = require('express')
-const path = require('path')
 const multer = require('multer')
 const shortId = require('shortid');   
-const {PythonShell} = require('python-shell')
 
-const viewsPath = path.join(__dirname,'../templates/views')
 const {detectSingle} = require('./mask/faceDetection')
 const requestToMaskApi = require('./util/requestToMaskDetection')
 const app = express()
 
-app.set('view engine','hbs')
-app.set('views',viewsPath)
-app.use('/js', express.static(__dirname + './../public/js'));
-app.use('', express.static(__dirname + './../public'));
+
 app.use(express.json())
-
-
-// app.get('/',async(req,res)=>{
-//     res.render('index')
-// })
-// app.get('/face',async(req,res)=>{
-//     res.render('facereco')
-// })
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
@@ -60,16 +46,6 @@ app.post('/checkmask',upload.single('image'),async(req,res)=>{
         else{
             const result = await requestToMaskApi(req.file.filename)
             res.status(200).send(result)
-
-            // PythonShell.run('src/py/predict.py',{args: [`--image=src/mask/out/${req.file.filename}`]},(err,result)=>{
-            //     result = JSON.parse(result)
-            //     if(err) {
-            //         console.log(err)
-            //         res.status(400).send({err})}
-            //     else{
-            //         res.status(200).send({result})
-            //     }
-            // })
         }
         
     } catch (error) {
