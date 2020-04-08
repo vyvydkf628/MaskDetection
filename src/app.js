@@ -5,6 +5,10 @@ const shortId = require('shortid');
 const {detectSingle} = require('./mask/faceDetection')
 const requestToMaskApi = require('./util/requestToMaskDetection')
 const app = express()
+const cors = require('cors');
+
+// CORS 설정
+app.use(cors());
 
 
 app.use(express.json())
@@ -37,6 +41,7 @@ const upload = multer({
     
 })
 app.post('/checkmask',upload.single('image'),async(req,res)=>{
+    console.log(req.file)
     if(!req.file) {res.status(400).send({error: "must have image"})}
     else{
     try {

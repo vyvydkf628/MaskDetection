@@ -19,4 +19,4 @@ const requestToMaskApi = async (image)=>{
     return result
 }
 
-module.exports = requestToMaskApi
+module.exports = requestToMaskApi   
