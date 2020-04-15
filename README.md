@@ -21,6 +21,7 @@ Note that the docker image can be deployed using any docker-based deploy platfor
 * https://github.com/justadudewhohacks/face-api.js/
 * https://github.com/googlecreativelab/teachable-machine-v1
 * https://github.com/X-zhangyang/Real-World-Masked-Face-Dataset
+* https://github.com/vyvydkf628/MaskDetectionflask
 
 # License
 MIT License
