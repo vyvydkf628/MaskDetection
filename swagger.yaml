@@ -17,7 +17,7 @@ info:
     name: "MIT"
     url: ""
 servers:
-  - url: 'https://mask.vyvydkf628.endpoint.ainize.ai'
+  - url: https://master-mask-detection-vyvydkf628.endpoint.ainize.ai
 
 paths:
   /checkmask:

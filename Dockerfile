@@ -11,6 +11,7 @@ RUN npm install
 
 COPY . . 
 
+RUN mkdir image
 # start app 
 EXPOSE 80
 CMD npm start
