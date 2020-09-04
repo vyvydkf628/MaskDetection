@@ -2,6 +2,9 @@
 [![Run on Ainize](https://www.ainize.ai/static/images/run_on_ainize_button.svg)](https://ainize.web.app/redirect?git_repo=github.com/vyvydkf628/MaskDetection)
 
 This repository provides an API server that detects whether the person in the image is wearing a mask or not. The model used in the server is from [face-api](https://github.com/justadudewhohacks/face-api.js/) and [teachable machine](https://github.com/googlecreativelab/teachable-machine-v1)
+## Motivation
+
+In the present scenario due to Covid-19, there is no efficient face mask detection applications which are now in high demand for transportation means, densely populated areas, residential districts, large-scale manufacturers and other enterprises to ensure safety.
 
 # How to deploy
 MaskDetection API is dockerized, so it can be built and run using docker commands.
